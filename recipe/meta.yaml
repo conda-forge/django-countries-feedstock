@@ -1,6 +1,5 @@
 {% set name = "django-countries" %}
-{% set version = "7.3" %}
-
+{% set version = "7.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,20 +7,24 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-countries-{{ version }}.tar.gz
-  sha256: adb4fdb9e28f74c4e65fecf4b8f394ccd737b35f03d3b950faad5e9150d8a7fb
+  sha256: 22915d9b9403932b731622619940a54894a3eb0da9a374e7249c8fc453c122d7
 
 build:
-  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
+    - python >=3.8
+    - setuptools >=48
+    - wheel >=0.29.0
     - pip
-    - python >=3.6
   run:
-    - python >=3.6
-    - django >=1.11,<3.0
+    - python >=3.8
+    - django >=3.2,<5.0
+    - asgiref
+    - typing-extensions
 
 test:
   imports:
@@ -41,3 +44,4 @@ about:
 extra:
   recipe-maintainers:
     - mxr-conda
+    - rxm7706
