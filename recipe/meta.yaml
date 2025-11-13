@@ -1,5 +1,5 @@
 {% set name = "django-countries" %}
-{% set version = "8.0.1" %}
+{% set version = "8.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_countries-{{ version }}.tar.gz
-  sha256: ebe7a14b0837f23cef76665ef327be5b661f080c2b6fd1957dc49f501b0c9fef
+  sha256: f6a1be18600b6f8e9feff027085226cf247a780831e7c0723c8b3e8e781e1326
 
 build:
   noarch: python
